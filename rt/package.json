@@ -1,0 +1,26 @@
+{
+  "name": "gremlins-webdriver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/webdriverio/bin/wdio wdio.conf.js"
+  },
+  "author": "Sebastian Sierra",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/jasmine-framework": "^5.15.0",
+    "chai": "4.2.0"
+  },
+  "dependencies": {
+    "@wdio/cli": "^5.12.5",
+    "@wdio/cucumber-framework": "^5.12.3",
+    "@wdio/local-runner": "^5.12.5",
+    "@wdio/selenium-standalone-service": "^5.12.1",
+    "@wdio/spec-reporter": "^5.12.1",
+    "amqplib": "^0.5.5",
+    "systeminformation": "^4.14.11",
+    "uuid": "^3.3.3",
+    "webdriverio": "^5.12.5"
+  }
+}
