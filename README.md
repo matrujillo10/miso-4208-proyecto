@@ -6,21 +6,24 @@ Se decidió realizar los diferentes componentes únicamente para aplicaciones we
 
 La arquitectura del proyecto se mantiene casi igual. Sin embargo, debido a la reducción del presupuesto, se decidió cambiar el diseño del diagrama de despliegue. Además, debido al constante crecimiento de los componentes workers, en los diagramas se referirá a ellos como un único componente.
 
-> TODO: Agregar diagrama
+![](https://raw.githubusercontent.com/matrujillo10/miso-4208-proyecto/master/arquitectura/componentes.png)
+
+<hr>
+
+![](https://raw.githubusercontent.com/matrujillo10/miso-4208-proyecto/master/arquitectura/despliegue.png)
+
+<hr>
+
+![](https://raw.githubusercontent.com/matrujillo10/miso-4208-proyecto/master/arquitectura/load_balancing_queues.png)
 
 # API Gateway
 
 Debido a que no se cuenta con una interfaz gráfica, se piensa desarrollar un API Gateway que permita al usuario interactuar con los workers a través de la cola de mensajes. Aunque, se podría evitar contar con la cola, haciendo que el API llegue a los worker directamente, se considera que esta no es una buena desición debido a que impactaría la escalabilidad de la aplicación.
 
-# Worker E2E Testing
+# Workers
 
-Debido a que será utilizado para aplicaciones web, se recibe un archivo javascript con un script de `cypress`. El worker está escrito en `nodejs`.
+Todos los workers se encuentran desarrollados en `node.js`. En general, reciben los archivos necesarios para poder ejecutar las pruebas y se comunican con el API a través de la cola de mensajes.
 
+## Workers actuales
 
-# Worker Random Testing
-
-Debido a que será utilizado para aplicaciones web, se recibe un archivo javascript con un script de `gremlins`. El worker está escrito en `nodejs`.
-
-# Worker BDT
-
-Debido a que será utilizado para aplicaciones web, se recibe un archivo javascript con la definición de los steps y otro con los casos escritos usando Gherkin. El worker está escrito en `nodejs`. 
+Actualmente se cuenta con workers para pruebas E2E, Random, BDT y VRT.
