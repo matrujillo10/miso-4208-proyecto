@@ -53,3 +53,18 @@ $$;
 
 CREATE TRIGGER vrt_execution_trigger AFTER INSERT ON public.app_vrttestexecution
 FOR EACH ROW EXECUTE PROCEDURE notify_vrt_execution();
+
+
+
+
+CREATE OR REPLACE FUNCTION notify_lighthouse_execution() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+    PERFORM pg_notify('lighthouse_execution'::TEXT, NEW.id::TEXT);
+    RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER lighthouse_execution_trigger AFTER INSERT ON public.app_lighthouseexecution
+FOR EACH ROW EXECUTE PROCEDURE notify_lighthouse_execution();
