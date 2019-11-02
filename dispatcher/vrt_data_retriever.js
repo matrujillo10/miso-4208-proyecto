@@ -11,7 +11,7 @@ const getVRTData = function(id) {
     return new Promise(function(resolve, reject) {
         c1.query(`
                 select cypress_zip, images_zip, spec, url, test_strategy_execution_id
-                from public.app_rttestexecution a 
+                from public.app_vrttestexecution a 
                 inner join public.app_vrttest b on a.vrt_test_id = b.id
                 inner join public.app_teststrategy c on b.test_strategy_id = c.id
                 inner join public.app_version d on c.version_id = d.id

@@ -34,7 +34,7 @@ function unleashGremlins(ttl, callback) {
       window.$ = function() {};
     });
 
-  // Si el elemento ya no está en el documento, habrá un error. Por tanto, se detienen los gremlins con 5 errores
+  // Si el elemento ya no estÃ¡ en el documento, habrÃ¡ un error. Por tanto, se detienen los gremlins con 5 errores
   horde.mogwai(gremlins.mogwais.gizmo().maxErrors(5)); 
 
   horde.seed(81432);

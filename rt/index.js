@@ -16,7 +16,7 @@ recieve((data) => {
                 fs.unlinkSync(path.join('./test/specs', file));
             }
             const test = fs.createWriteStream(`./test/specs/${uuid()}.js`);
-            http.get(data.test, function (response) {
+            http.get(data.gremlins, function (response) {
                 response.pipe(test);
                 test.on('finish', function () {
                     var result = fs.readFileSync('wdio-template.conf.js', "utf8")
