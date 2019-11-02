@@ -1,9 +1,9 @@
 const path = require('path');
-const configFile = path.resolve(__dirname, './wdio.conf.js');
-const Launcher = require('@wdio/cli').default;
-const wdio = new Launcher(configFile, {});
+// const configFile = path.resolve(__dirname, './wdio.conf.js');
+// const Launcher = require('@wdio/cli').default;
+// const wdio = new Launcher(configFile, {});
 const recieve = require('./worker');
-const https = require('https');
+const http = require('http');
 const fs = require('fs');
 var uuid = require('uuid/v4');
 let exec = require('child_process').exec;
@@ -24,23 +24,31 @@ recieve((data) => {
                     fs.unlinkSync(path.join('./features/step-definitions', file));
                 }
                 const feature = fs.createWriteStream(`./features/${uuid()}.feature`);
-                https.get(data.feature, function (response) {
+                http.get(data.feature, function (response) {
                     response.pipe(feature);
                     feature.on('finish', function () {
                         const steps = fs.createWriteStream(`./features/step-definitions/index.js`);
-                        https.get(data.steps, function (response) {
+                        http.get(data.steps, function (response) {
                             response.pipe(steps);
                             steps.on('finish', function () {
-                                exec('./node_modules/.bin/wdio wdio.conf.js', (error, stdout, stderr) => {
-                                    if (error) {
-                                        console.error('Launcher failed while running the test suite', error.stacktrace);
-                                        reject(error);
-                                    } else {
-                                        console.log('test suite run is finished')
-                                        console.log('OK');
-                                        resolve('OK');
-                                    }
-                                })
+                                var result = fs.readFileSync('wdio-template.conf.js', "utf8")
+                                                .replace(/{{browserName}}/g, data.browser)
+                                                .replace(/{{browserVersion}}/g, data.browser_version == null ? 'latest' : data.browser_version)
+                                                .replace(/{{base_url}}/g, data.url);
+                                fs.writeFile('wdio.conf.js', result, 'utf8', function (err) {
+                                    if (err) return console.log(err);
+                                    exec('./node_modules/.bin/wdio wdio.conf.js', (error, stdout, stderr) => {
+                                        
+                                        if (error) {
+                                            console.error('Launcher failed while running the test suite', error.stacktrace);
+                                            reject(error);
+                                        } else {
+                                            console.log('test suite run is finished')
+                                            console.log('OK');
+                                            resolve('OK');
+                                        }
+                                    });
+                                });
                                 /*wdio.run().then((code) => {
                                     console.log('test suite run is finished')
                                     resolve(code);

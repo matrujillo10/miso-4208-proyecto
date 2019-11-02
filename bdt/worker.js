@@ -2,7 +2,6 @@ var amqp = require('amqplib/callback_api');
 var uuid = require('uuid/v4');
 const si = require('systeminformation');
 
-const statusQueue = 'statusQueue-BDT'
 const workQueue = 'workQueue-BDT'
 
 const workerType = 'BDT'
@@ -20,37 +19,7 @@ const recieve = function (onSuccess, onFailure) {
                 onFailure(error1)
                 return;
             }
-
-            channel.assertQueue(statusQueue, {
-                durable: false
-            });
-            channel.consume(statusQueue, function reply(msg) {
-                console.log(" [.] Recibido statusQueue");
-                if (msg.content.toString() == workerType) {
-                    si.mem()
-                        .then(mem => {
-                            si.currentLoad()
-                                .then(cpu => {
-                                    channel.sendToQueue(msg.properties.replyTo,
-                                        Buffer.from(JSON.stringify({
-                                            ID: workerID,
-                                            RAM: mem.free,
-                                            CPU: cpu.currentload
-                                        })), {
-                                        correlationId: msg.properties.correlationId
-                                    });
-                                })
-                                .catch(error => {
-                                    console.error(error)
-                                });
-                        })
-                        .catch(error => {
-                            console.error(error)
-                        });
-                }
-                channel.ack(msg);
-            });
-
+            
             channel.assertQueue(workQueue, {
                 durable: false
             });
@@ -59,21 +28,19 @@ const recieve = function (onSuccess, onFailure) {
                 console.log(" [.] Recibido workQueue");
                 var data = JSON.parse(msg.content.toString())
                 console.log(data);
-                if (data.workerID == workerID) {
-                    onSuccess(data).then(ans => {
-                        // TODO: Enviar el reporte cuando se esté generando
-                        channel.sendToQueue(msg.properties.replyTo,
-                            Buffer.from(JSON.stringify({status: 'ok'})), {
-                            correlationId: msg.properties.correlationId
-                        });
-                    }).catch(err => {
-                        console.log(err);
-                        channel.sendToQueue(msg.properties.replyTo,
-                            Buffer.from(JSON.stringify({status: 'error'})), {
-                            correlationId: msg.properties.correlationId
-                        });
-                    })
-                }
+                onSuccess(data).then(ans => {
+                    // TODO: Enviar el reporte cuando se esté generando
+                    channel.sendToQueue(msg.properties.replyTo,
+                        Buffer.from(JSON.stringify({status: 'ok'})), {
+                        correlationId: msg.properties.correlationId
+                    });
+                }).catch(err => {
+                    console.log(err);
+                    channel.sendToQueue(msg.properties.replyTo,
+                        Buffer.from(JSON.stringify({status: 'error'})), {
+                        correlationId: msg.properties.correlationId
+                    });
+                })
                 channel.ack(msg);
             });
         });

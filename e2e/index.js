@@ -3,7 +3,7 @@ const fs = require('fs');
 const recieve = require('./worker');
 const rimraf = require("rimraf");
 var extract = require('extract-zip');
-const https = require('https');
+const http = require('http');
 var resolvePath = require('path').resolve
 
 recieve((data) => {
@@ -13,7 +13,7 @@ recieve((data) => {
     }
     rimraf.sync("cypress");
     const czip = fs.createWriteStream("./cypress.zip");
-    https.get(data.zip, function (response) {
+    http.get(data.zip, function (response) {
       response.pipe(czip);
       czip.on('finish', function () {
         extract(resolvePath("./cypress.zip"), { dir: resolvePath("./")}, function (err) {

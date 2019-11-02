@@ -44,7 +44,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome'
+        browserName: 'chrome',
+        browserVersion: 'latest'
     }],
     //
     // ===================
@@ -72,7 +73,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: 'https://losestudiantes.co',
+    baseUrl: 'https://losestudiantes.co/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

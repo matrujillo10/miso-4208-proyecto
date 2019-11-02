@@ -3,14 +3,14 @@ var uuid = require('uuid/v4');
 var splitFilename = require('./utils')
 var fs = require('fs');
 
-let serviceAccount = require('./miso-4208-proyecto-firebase-adminsdk-9wga9-9a283011e2.json');
+let serviceAccount = require('./miso-4208-proyecto-c0c72-firebase-adminsdk-aa1av-4b78272919.json');
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "scripts"
 });
 
-const bucket = admin.storage().bucket("miso-4208-proyecto.appspot.com");
+const bucket = admin.storage().bucket("miso-4208-proyecto-c0c72.appspot.com");
 
 let db = admin.firestore();
 

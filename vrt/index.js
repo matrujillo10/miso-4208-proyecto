@@ -3,7 +3,7 @@ const fs = require('fs');
 const recieve = require('./worker');
 const rimraf = require("rimraf");
 var extract = require('extract-zip');
-const https = require('https');
+const http = require('http');
 var path = require('path')
 var resolvePath = require('path').resolve
 var recursive = require("recursive-readdir");
@@ -23,7 +23,7 @@ recieve((data) => {
     rimraf.sync("images");
 
     const czip = fs.createWriteStream("./cypress.zip");
-    https.get(data.cypress_zip, function (response) {
+    http.get(data.cypress_zip, function (response) {
       response.pipe(czip);
       czip.on('finish', function () {
         extract(resolvePath("./cypress.zip"), { dir: resolvePath("./") }, function (err) {
@@ -32,7 +32,7 @@ recieve((data) => {
             reject({ status: 'error' })
           }
           const izip = fs.createWriteStream("./images.zip");
-          https.get(data.images_zip, function (response) {
+          http.get(data.images_zip, function (response) {
             response.pipe(izip);
             izip.on('finish', function () {
               extract(resolvePath("./images.zip"), { dir: resolvePath("./") }, function (err) {
@@ -78,7 +78,7 @@ recieve((data) => {
                         promises.push(resemble(equivs[key].f1).compareTo(equivs[key].f2).ignoreLess()
                         .onComplete(function (data) {
                           var base64Data = data.getImageDataUrl().replace(/^data:image\/png;base64,/, "");
-                          var comparsion_output_paht = `${path.parse(key).name}-comparsion.png`;
+                          var comparsion_output_paht = `output/${path.parse(key).name}-comparsion.png`;
                           return new Promise((resolve, reject) => {
                             require("fs").writeFile(comparsion_output_paht, base64Data, 'base64', function (err) {
                               if (err) {
