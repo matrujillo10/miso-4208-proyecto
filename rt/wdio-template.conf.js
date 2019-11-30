@@ -1,3 +1,5 @@
+const video = require('wdio-video-reporter');
+
 exports.config = {
 
     //
@@ -16,6 +18,21 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],    
+    logLevel: 'info', // trace | debug | info | warn | error | silent
+    outputDir: './_results_',
+    reporters: [
+        'spec',
+        [video, {
+        saveAllVideos: true,       // If true, also saves videos for successful test cases
+        videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+        videoRenderTimeout: 5,      // Max seconds to wait for a video to finish rendering
+        }],
+        ['allure', {
+        outputDir: './_results_/allure-raw',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+        }],
+    ],
     //
     // ============
     // Capabilities
@@ -59,7 +76,6 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'trace',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -123,7 +139,6 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ['spec'],
     //
     // Options to be passed to Jasmine.
     jasmineNodeOpts: {

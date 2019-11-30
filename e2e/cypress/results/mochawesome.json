@@ -1,0 +1,285 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 9,
+    "passes": 2,
+    "pending": 0,
+    "failures": 7,
+    "start": "2019-11-27T10:03:15.872Z",
+    "end": "2019-11-27T10:04:35.923Z",
+    "duration": 80051,
+    "testsRegistered": 9,
+    "passPercent": 22.22222222222222,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dbf52e1f-2a61-4f78-86b7-81338190750b",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+          "title": "todoist",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visita todoist.com y toma captura",
+              "fullTitle": "todoist Visita todoist.com y toma captura",
+              "timedOut": null,
+              "duration": 8319,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/');\ncy.wait(1000);\ncy.screenshot('home', {\n  timeout: 100000,\n  log: false,\n  scale: true\n});",
+              "err": {},
+              "uuid": "619caf6d-8d56-40c9-a397-5027ff6a18b7",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com y toma captura de como funciona",
+              "fullTitle": "todoist Visita todoist.com y toma captura de como funciona",
+              "timedOut": null,
+              "duration": 7307,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/');\ncy.wait(1000);\ncy.get(':nth-child(1) > .td-header__action-link').click();\ncy.screenshot('how-it-works', {\n  timeout: 100000,\n  log: false,\n  scale: true\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: ':nth-child(1) > .td-header__action-link', but never found it.",
+                "estack": "CypressError: Timed out retrying: Expected to find element: ':nth-child(1) > .td-header__action-link', but never found it.\n    at Object.cypressErr (https://todoist.com/__cypress/runner/cypress_runner.js:85348:11)\n    at Object.throwErr (https://todoist.com/__cypress/runner/cypress_runner.js:85303:18)\n    at Object.throwErrByPath (https://todoist.com/__cypress/runner/cypress_runner.js:85335:17)\n    at retry (https://todoist.com/__cypress/runner/cypress_runner.js:77321:16)\n    at onFailFn (https://todoist.com/__cypress/runner/cypress_runner.js:68422:16)\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Promise._settlePromiseFromHandler (https://todoist.com/__cypress/runner/cypress_runner.js:116898:31)\n    at Promise._settlePromise (https://todoist.com/__cypress/runner/cypress_runner.js:116955:18)\n    at Promise._settlePromise0 (https://todoist.com/__cypress/runner/cypress_runner.js:117000:10)\n    at Promise._settlePromises (https://todoist.com/__cypress/runner/cypress_runner.js:117075:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://todoist.com/__cypress/runner/cypress_runner.js:113687:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113697:10)\n    at Async.drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113571:14)\n    at <anonymous>",
+                "diff": null
+              },
+              "uuid": "4c274a3a-d981-4e44-87bb-de3580121145",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com y toma captura de premium",
+              "fullTitle": "todoist Visita todoist.com y toma captura de premium",
+              "timedOut": null,
+              "duration": 7325,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/');\ncy.wait(1000);\ncy.get(':nth-child(3) > .td-header__action-link').click();\ncy.screenshot('premium', {\n  timeout: 100000,\n  log: false,\n  scale: true\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: ':nth-child(3) > .td-header__action-link', but never found it.",
+                "estack": "CypressError: Timed out retrying: Expected to find element: ':nth-child(3) > .td-header__action-link', but never found it.\n    at Object.cypressErr (https://todoist.com/__cypress/runner/cypress_runner.js:85348:11)\n    at Object.throwErr (https://todoist.com/__cypress/runner/cypress_runner.js:85303:18)\n    at Object.throwErrByPath (https://todoist.com/__cypress/runner/cypress_runner.js:85335:17)\n    at retry (https://todoist.com/__cypress/runner/cypress_runner.js:77321:16)\n    at onFailFn (https://todoist.com/__cypress/runner/cypress_runner.js:68422:16)\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Promise._settlePromiseFromHandler (https://todoist.com/__cypress/runner/cypress_runner.js:116898:31)\n    at Promise._settlePromise (https://todoist.com/__cypress/runner/cypress_runner.js:116955:18)\n    at Promise._settlePromise0 (https://todoist.com/__cypress/runner/cypress_runner.js:117000:10)\n    at Promise._settlePromises (https://todoist.com/__cypress/runner/cypress_runner.js:117075:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://todoist.com/__cypress/runner/cypress_runner.js:113687:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113697:10)\n    at Async.drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113571:14)\n    at <anonymous>",
+                "diff": null
+              },
+              "uuid": "a6d11e92-96d2-4601-9553-b70895cf1bbb",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com y toma captura de business",
+              "fullTitle": "todoist Visita todoist.com y toma captura de business",
+              "timedOut": null,
+              "duration": 8578,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/');\ncy.wait(1000);\ncy.get(':nth-child(4) > .td-header__action-link').click();\ncy.screenshot('business', {\n  timeout: 100000,\n  log: false,\n  scale: true\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: ':nth-child(4) > .td-header__action-link', but never found it.",
+                "estack": "CypressError: Timed out retrying: Expected to find element: ':nth-child(4) > .td-header__action-link', but never found it.\n    at Object.cypressErr (https://todoist.com/__cypress/runner/cypress_runner.js:85348:11)\n    at Object.throwErr (https://todoist.com/__cypress/runner/cypress_runner.js:85303:18)\n    at Object.throwErrByPath (https://todoist.com/__cypress/runner/cypress_runner.js:85335:17)\n    at retry (https://todoist.com/__cypress/runner/cypress_runner.js:77321:16)\n    at onFailFn (https://todoist.com/__cypress/runner/cypress_runner.js:68422:16)\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Promise._settlePromiseFromHandler (https://todoist.com/__cypress/runner/cypress_runner.js:116898:31)\n    at Promise._settlePromise (https://todoist.com/__cypress/runner/cypress_runner.js:116955:18)\n    at Promise._settlePromise0 (https://todoist.com/__cypress/runner/cypress_runner.js:117000:10)\n    at Promise._settlePromises (https://todoist.com/__cypress/runner/cypress_runner.js:117075:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://todoist.com/__cypress/runner/cypress_runner.js:113687:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113697:10)\n    at Async.drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113571:14)\n    at <anonymous>",
+                "diff": null
+              },
+              "uuid": "43d83af9-b674-4d1e-ac54-ce744f38154c",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com y toma captura de pricing",
+              "fullTitle": "todoist Visita todoist.com y toma captura de pricing",
+              "timedOut": null,
+              "duration": 9353,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/');\ncy.wait(1000);\ncy.get('#top_menu > :nth-child(5) > a').click();\ncy.screenshot('pricing', {\n  timeout: 100000,\n  log: false,\n  scale: true\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: '#top_menu > :nth-child(5) > a', but never found it.",
+                "estack": "CypressError: Timed out retrying: Expected to find element: '#top_menu > :nth-child(5) > a', but never found it.\n    at Object.cypressErr (https://todoist.com/__cypress/runner/cypress_runner.js:85348:11)\n    at Object.throwErr (https://todoist.com/__cypress/runner/cypress_runner.js:85303:18)\n    at Object.throwErrByPath (https://todoist.com/__cypress/runner/cypress_runner.js:85335:17)\n    at retry (https://todoist.com/__cypress/runner/cypress_runner.js:77321:16)\n    at onFailFn (https://todoist.com/__cypress/runner/cypress_runner.js:68422:16)\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Promise._settlePromiseFromHandler (https://todoist.com/__cypress/runner/cypress_runner.js:116898:31)\n    at Promise._settlePromise (https://todoist.com/__cypress/runner/cypress_runner.js:116955:18)\n    at Promise._settlePromise0 (https://todoist.com/__cypress/runner/cypress_runner.js:117000:10)\n    at Promise._settlePromises (https://todoist.com/__cypress/runner/cypress_runner.js:117075:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://todoist.com/__cypress/runner/cypress_runner.js:113687:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113697:10)\n    at Async.drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113571:14)\n    at <anonymous>",
+                "diff": null
+              },
+              "uuid": "7450fcd1-8d3a-4a27-a101-e608401367fe",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com y toma screenshot del sign up",
+              "fullTitle": "todoist Visita todoist.com y toma screenshot del sign up",
+              "timedOut": null,
+              "duration": 8138,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/');\ncy.get('.td-header__signup-link').click();\ncy.wait(3000);\ncy.get('#GB_window').screenshot('signup', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: '.td-header__signup-link', but never found it.",
+                "estack": "CypressError: Timed out retrying: Expected to find element: '.td-header__signup-link', but never found it.\n    at Object.cypressErr (https://todoist.com/__cypress/runner/cypress_runner.js:85348:11)\n    at Object.throwErr (https://todoist.com/__cypress/runner/cypress_runner.js:85303:18)\n    at Object.throwErrByPath (https://todoist.com/__cypress/runner/cypress_runner.js:85335:17)\n    at retry (https://todoist.com/__cypress/runner/cypress_runner.js:77321:16)\n    at onFailFn (https://todoist.com/__cypress/runner/cypress_runner.js:68422:16)\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Promise._settlePromiseFromHandler (https://todoist.com/__cypress/runner/cypress_runner.js:116898:31)\n    at Promise._settlePromise (https://todoist.com/__cypress/runner/cypress_runner.js:116955:18)\n    at Promise._settlePromise0 (https://todoist.com/__cypress/runner/cypress_runner.js:117000:10)\n    at Promise._settlePromises (https://todoist.com/__cypress/runner/cypress_runner.js:117075:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://todoist.com/__cypress/runner/cypress_runner.js:113687:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113697:10)\n    at Async.drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113571:14)\n    at <anonymous>",
+                "diff": null
+              },
+              "uuid": "f8014860-11bf-4afd-91ad-ea4d353fd701",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com y toma screenshot del login",
+              "fullTitle": "todoist Visita todoist.com y toma screenshot del login",
+              "timedOut": null,
+              "duration": 8102,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/');\ncy.get(':nth-child(5) > .td-header__action-link').click();\ncy.wait(3000);\ncy.get('#GB_window').screenshot('login', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: ':nth-child(5) > .td-header__action-link', but never found it.",
+                "estack": "CypressError: Timed out retrying: Expected to find element: ':nth-child(5) > .td-header__action-link', but never found it.\n    at Object.cypressErr (https://todoist.com/__cypress/runner/cypress_runner.js:85348:11)\n    at Object.throwErr (https://todoist.com/__cypress/runner/cypress_runner.js:85303:18)\n    at Object.throwErrByPath (https://todoist.com/__cypress/runner/cypress_runner.js:85335:17)\n    at retry (https://todoist.com/__cypress/runner/cypress_runner.js:77321:16)\n    at onFailFn (https://todoist.com/__cypress/runner/cypress_runner.js:68422:16)\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Promise._settlePromiseFromHandler (https://todoist.com/__cypress/runner/cypress_runner.js:116898:31)\n    at Promise._settlePromise (https://todoist.com/__cypress/runner/cypress_runner.js:116955:18)\n    at Promise._settlePromise0 (https://todoist.com/__cypress/runner/cypress_runner.js:117000:10)\n    at Promise._settlePromises (https://todoist.com/__cypress/runner/cypress_runner.js:117075:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://todoist.com/__cypress/runner/cypress_runner.js:113687:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113697:10)\n    at Async.drainQueues (https://todoist.com/__cypress/runner/cypress_runner.js:113571:14)\n    at <anonymous>",
+                "diff": null
+              },
+              "uuid": "91966ea8-ff47-4ef2-94da-dca683baa1b2",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com y toma screenshot de la opción de olvido contraseña",
+              "fullTitle": "todoist Visita todoist.com y toma screenshot de la opción de olvido contraseña",
+              "timedOut": null,
+              "duration": 5567,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/Users/showLogin?mini=1');\ncy.get('[href=\"/Users/forgotPassword?mini=1\"]').click();\ncy.screenshot('forgot-password', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});",
+              "err": {},
+              "uuid": "3c3fe57f-20af-4feb-9af3-d2d1b212abd1",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visita todoist.com, se loguea y toma screenshots de las diferentes funcionalidades",
+              "fullTitle": "todoist Visita todoist.com, se loguea y toma screenshots de las diferentes funcionalidades",
+              "timedOut": null,
+              "duration": 15725,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://todoist.com/Users/showLogin?mini=1'); // Llena el formulario\ncy.get('#email').click().type('ma.trujillo10@uniandes.edu.co');\ncy.get('#password').click().type('somepassword');\ncy.get('.submit_btn').click();\ncy.wait(3000); // Toma screenshot de la pantalla de inicio después de loguearse\ncy.screenshot('logged', {\n  timeout: 50000,\n  log: false,\n  scale: true\n}); // Va a la pantalla de crear una nueva tarea\ncy.get('.empty-state-button').click();\ncy.screenshot('create-task', {\n  timeout: 50000,\n  log: false,\n  scale: true\n}); // Cancela la creación del task\ncy.get('.cancel').click(); // Va a la pantalla de proximos 7 dias\ncy.get('[data-track=\"navigation|next_7_days\"] > .item_content').click();\ncy.screenshot('next-seven-days', {\n  timeout: 50000,\n  log: false,\n  scale: true\n}); // Va a la pantalla de bienvenida\ncy.get('.clickable > .item_table > tbody > tr > .name > :nth-child(1)').click();\ncy.screenshot('welcome', {\n  timeout: 50000,\n  log: false,\n  scale: true\n}); // Va a la pantalla de inbox\ncy.get('#filter_inbox > .item_content').click();\ncy.screenshot('inbox', {\n  timeout: 50000,\n  log: false,\n  scale: true\n}); // Abre el modal de crear proyecto\ncy.get('[data-track=\"projects|add\"]').click();\ncy.screenshot('add-project', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('.reactist_modal_box__actions > [type=\"button\"]').click(); // Cierra el modal\n// Abre el modal de crear task rápido\ncy.get('[data-track=\"navigation|quick_add\"]').click();\ncy.screenshot('quick-create-task', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('.icon_close').click(); // Abre el menú de configuraciones\ncy.get('#gear_holder').click();\ncy.screenshot('configs', {\n  timeout: 50000,\n  log: false,\n  scale: true\n}); // Va al registro de actividad\ncy.get('[data-track=\"navigation|gear_view_activity_log\"]').click();\ncy.screenshot('activity-log', {\n  timeout: 50000,\n  log: false,\n  scale: true\n}); // Atajos del teclado\ncy.get('#gear_holder').click();\ncy.get('[data-track=\"navigation|gear_shortcuts\"]').click();\ncy.screenshot('shortcuts', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('.close > div > span > svg').click(); // Va a las configuraciones\ncy.get('#gear_holder').click();\ncy.get('[data-track=\"navigation|gear_settings\"]').click();\ncy.screenshot('configs-account', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('[href=\"/prefs/general\"]').click();\ncy.screenshot('configs-general', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('[href=\"/prefs/payments\"]').click();\ncy.screenshot('configs-payments', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('[href=\"/prefs/theme\"]').click();\ncy.screenshot('configs-theme', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('[href=\"/prefs/karma\"]').click();\ncy.screenshot('configs-karma', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('[href=\"/prefs/notifications\"]').click();\ncy.screenshot('configs-notifications', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});\ncy.get('[href=\"/prefs/integrations\"]').click();\ncy.screenshot('configs-integrations', {\n  timeout: 50000,\n  log: false,\n  scale: true\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: cy.click() failed because this element:\n\n<button class=\"empty-state-button\">Añade u...</button>\n\nis being covered by another element:\n\n<footer class=\"reactist_modal_box__actions foundations_promotion__actions\">...</footer>\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying: cy.click() failed because this element:\n\n<button class=\"empty-state-button\">Añade u...</button>\n\nis being covered by another element:\n\n<footer class=\"reactist_modal_box__actions foundations_promotion__actions\">...</footer>\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at Object.cypressErr (https://todoist.com/__cypress/runner/cypress_runner.js:85348:11)\n    at Object.throwErr (https://todoist.com/__cypress/runner/cypress_runner.js:85303:18)\n    at Object.throwErrByPath (https://todoist.com/__cypress/runner/cypress_runner.js:85335:17)\n    at Object.retry (https://todoist.com/__cypress/runner/cypress_runner.js:77321:16)\n    at retryActionability (https://todoist.com/__cypress/runner/cypress_runner.js:68070:19)\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Function.Promise.attempt.Promise.try (https://todoist.com/__cypress/runner/cypress_runner.js:116237:29)\n    at tryFn (https://todoist.com/__cypress/runner/cypress_runner.js:77770:21)\n    at whenStable (https://todoist.com/__cypress/runner/cypress_runner.js:77805:12)\n    at https://todoist.com/__cypress/runner/cypress_runner.js:77364:16\n    at tryCatcher (https://todoist.com/__cypress/runner/cypress_runner.js:118962:23)\n    at Promise._settlePromiseFromHandler (https://todoist.com/__cypress/runner/cypress_runner.js:116898:31)\n    at Promise._settlePromise (https://todoist.com/__cypress/runner/cypress_runner.js:116955:18)\n    at Promise._settlePromise0 (https://todoist.com/__cypress/runner/cypress_runner.js:117000:10)\n    at Promise._settlePromises (https://todoist.com/__cypress/runner/cypress_runner.js:117079:18)\n    at Promise._fulfill (https://todoist.com/__cypress/runner/cypress_runner.js:117024:18)",
+                "diff": null
+              },
+              "uuid": "eee92a51-1bf2-4acd-872d-0b14b3819a80",
+              "parentUUID": "fd26f9e1-4359-42d4-82a9-f8977341cf28",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "619caf6d-8d56-40c9-a397-5027ff6a18b7",
+            "3c3fe57f-20af-4feb-9af3-d2d1b212abd1"
+          ],
+          "failures": [
+            "4c274a3a-d981-4e44-87bb-de3580121145",
+            "a6d11e92-96d2-4601-9553-b70895cf1bbb",
+            "43d83af9-b674-4d1e-ac54-ce744f38154c",
+            "7450fcd1-8d3a-4a27-a101-e608401367fe",
+            "f8014860-11bf-4afd-91ad-ea4d353fd701",
+            "91966ea8-ff47-4ef2-94da-dca683baa1b2",
+            "eee92a51-1bf2-4acd-872d-0b14b3819a80"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 78414,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "4.0.1"
+    }
+  }
+}

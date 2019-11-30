@@ -5,6 +5,7 @@ var getRTData = require('./rt_data_retriever')
 var getVRTData = require('./vrt_data_retriever')
 var getE2EData = require('./e2e_data_retriever')
 var getLighthouseData = require('./lighthouse_data_retriever')
+var sendEmail = require('./email_sender')
 const connectionString = 'postgres://miller:Toby2015@localhost:5432/miso4208'
 
 const client = new Client({
@@ -12,7 +13,7 @@ const client = new Client({
 });
 client.connect();
 
-function updateStatus(status, id, table) {
+function updateStatusTest(status, id, strategy_id, table) {
     const c = new Client({
         connectionString: connectionString,
     });
@@ -25,7 +26,53 @@ function updateStatus(status, id, table) {
                 reject('error')
             } else {
                 c.end();
+                isExecutionEnded(strategy_id).then(res => {
+                    if (res) {
+                        updateStatusStrategy("TERMINADA", strategy_id).then(res => {
+                            sendEmail(strategy_id);
+                        });
+                    }
+                    resolve('ok')
+                })
+            }
+        })
+    })
+}
+
+function updateStatusStrategy(status, id) {
+    const c = new Client({
+        connectionString: connectionString,
+    });
+    c.connect();
+    return new Promise(function (resolve, reject) {
+        c.query(`update app_teststrategyexecution set status = '${status}' where id = $1::int`, [id], (err, res) => {
+            if (err) {
+                console.log(err.stack)
+                c.end()
+                reject('error')
+            } else {
+                c.end();
                 resolve('ok')
+            }
+        })
+    })
+}
+
+function isExecutionEnded(id) {
+    const c = new Client({
+        connectionString: connectionString,
+    });
+    c.connect();
+    return new Promise(function (resolve, reject) {
+        c.query(`SELECT * from public."EXECUTION_ENDED"($1::int)`, [id], (err, res) => {
+            if (err) {
+                console.log(err.stack)
+                c.end()
+                reject(false);
+            } else {
+                c.end();
+                console.log(res);
+                resolve(res.rows[0].ended);
             }
         })
     })
@@ -39,26 +86,19 @@ client.on('notification', function (msg) {
             console.log('bdt_execution');
             getBDTData(msg.payload)
                 .then(data => {
+                    console.log(data);
                     sendWork(data, 'BDT', function (response) {
+                        console.log(response)
                         if (response.status == 'ok') {
                             console.log('ok');
-                            updateStatus('OK', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('OK', data.id, 'public.app_bdttestexecution')
-                                })
+                            updateStatusTest('OK', msg.payload, data.test_strategy_execution_id, 'public.app_bdttestexecution')
                         } else {
                             console.log('El worker no pudo ejecutar el script.');
-                            updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('ERRROR', data.id, 'public.app_bdttestexecution')
-                                })
+                            updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_bdttestexecution')
                         }
                     }, function (error) {
                         console.log('Error sending the work', error);
-                        updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                            .then(data => {
-                                updateStatus('ERRROR', data.id, 'public.app_bdttestexecution')
-                            })
+                        updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_bdttestexecution')
                     })
                 })
             break;
@@ -66,26 +106,19 @@ client.on('notification', function (msg) {
             console.log('rt_execution');
             getRTData(msg.payload)
                 .then(data => {
+                    console.log(msg.payload);
                     sendWork(data, 'RT', function (response) {
+                        console.log(response)
                         if (response.status == 'ok') {
                             console.log('ok');
-                            updateStatus('OK', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('OK', data.id, 'public.app_rttestexecution')
-                                })
+                            updateStatusTest('OK', msg.payload, data.test_strategy_execution_id, 'public.app_rttestexecution')
                         } else {
                             console.log('El worker no pudo ejecutar el script.');
-                            updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('ERRROR', data.id, 'public.app_rttestexecution')
-                                })
+                            updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_rttestexecution')
                         }
                     }, function (error) {
                         console.log('Error sending the work', error);
-                        updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                            .then(data => {
-                                updateStatus('ERRROR', data.id, 'public.app_rttestexecution')
-                            })
+                        updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_rttestexecution')
                     })
                 })
             break;
@@ -93,26 +126,13 @@ client.on('notification', function (msg) {
             console.log('vrt_execution');
             getVRTData(msg.payload)
                 .then(data => {
+                    console.log(data);
                     sendWork(data, 'VRT', function (response) {
-                        if (response.status == 'ok') {
-                            console.log('ok');
-                            updateStatus('OK', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('OK', data.id, 'public.app_vrttestexecution')
-                                })
-                        } else {
-                            console.log('El worker no pudo ejecutar el script.');
-                            updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('ERRROR', data.id, 'public.app_vrttestexecution')
-                                })
-                        }
+                        console.log(response)
+                        updateStatusTest(response.status, msg.payload, data.test_strategy_execution_id, 'public.app_vrttestexecution')
                     }, function (error) {
                         console.log('Error sending the work', error);
-                        updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                            .then(data => {
-                                updateStatus('ERRROR', data.id, 'public.app_vrttestexecution')
-                            })
+                        updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_vrttestexecution')
                     })
                 })
             break;
@@ -120,46 +140,32 @@ client.on('notification', function (msg) {
             console.log('e2e_execution');
             getE2EData(msg.payload)
                 .then(data => {
+                    console.log(data);
                     sendWork(data, 'E2E', function (response) {
-                        if (response.status == 'ok') {
-                            console.log('ok');
-                            updateStatus('OK', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('OK', data.id, 'public.app_e2etestexecution')
-                                })
-                        } else {
-                            console.log('El worker no pudo ejecutar el script.');
-                            updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                                .then(data => {
-                                    updateStatus('ERRROR', data.id, 'public.app_e2etestexecution')
-                                })
-                        }
+                        console.log(response)
+                        updateStatusTest(response.status, msg.payload, data.test_strategy_execution_id, 'public.app_e2etestexecution')
                     }, function (error) {
                         console.log('Error sending the work', error);
-                        updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                            .then(data => {
-                                updateStatus('ERRROR', data.id, 'public.app_e2etestexecution')
-                            })
+                        updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_e2etestexecution')
                     })
                 })
             break;
         case 'lighthouse_execution':
             getLighthouseData(msg.payload)
                 .then(data => {
+                    console.log(data);
                     sendWork(data, 'lighthouse', function (response) {
+                        console.log(response)
                         if (response.status == 'ok') {
                             console.log('ok');
-                            updateStatus('OK', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                            updateStatus('OK', data.id, 'public.app_lighthouseexecution')
+                            updateStatusTest('OK', msg.payload, data.test_strategy_execution_id, 'public.app_lighthouseexecution')
                         } else {
                             console.log('El worker no pudo ejecutar el script.');
-                            updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                            updateStatus('ERRROR', data.id, 'public.app_lighthouseexecution')
+                            updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_lighthouseexecution')
                         }
                     }, function (error) {
                         console.log('Error sending the work', error);
-                        updateStatus('ERRROR', data.test_strategy_execution_id, 'public.app_teststrategyexecution')
-                        updateStatus('ERRROR', data.id, 'public.app_lighthouseexecution')
+                        updateStatusTest('ERRROR', msg.payload, data.test_strategy_execution_id, 'public.app_lighthouseexecution')
                     })
                 })
             break;

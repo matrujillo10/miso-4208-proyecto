@@ -1,0 +1,41 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1574862506311' stop='1574862561752'>
+    <name>Monkey testing with gremlins </name>
+    <title>Monkey testing with gremlins </title>
+    <test-cases>
+        <test-case start='1574862506327' status='passed' stop='1574862561747'>
+            <name>it should not raise any error</name>
+            <title>it should not raise any error</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-78.0.3904.108'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Execution video' source='b3dff5da-0176-41ed-81bb-7a464b67f453-attachment.mp4' type='video/mp4' size='204'/>
+            </attachments>
+        </test-case>
+        <test-case start='1574862561750' status='failed' stop='1574862561751'>
+            <name>"after all" hook</name>
+            <title>"after all" hook</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-78.0.3904.108'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>browser.log is not a function</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,0 +1,6 @@
+2019-11-27T13:48:22.461Z INFO @wdio/cli:launcher: Run onPrepare hook
+2019-11-27T13:48:24.154Z INFO @wdio/local-runner: Start worker 0-0 with arg: wdio.conf.js
+2019-11-27T13:49:23.164Z INFO @wdio/cli:launcher: Run onComplete hook
+2019-11-27T13:49:23.164Z INFO @wdio/selenium-standalone-service: shutting down all browsers
+2019-11-27T13:49:23.187Z INFO @wdio/local-runner: Shutting down spawned worker
+2019-11-27T13:49:23.437Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully

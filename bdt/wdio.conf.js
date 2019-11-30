@@ -1,3 +1,5 @@
+const video = require('wdio-video-reporter');
+
 exports.config = {
     
     //
@@ -15,6 +17,21 @@ exports.config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
+    ],
+    logLevel: 'info', // trace | debug | info | warn | error | silent
+    outputDir: './_results_',
+    reporters: [
+        'spec',
+        [video, {
+        saveAllVideos: true,       // If true, also saves videos for successful test cases
+        videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+        videoRenderTimeout: 5,      // Max seconds to wait for a video to finish rendering
+        }],
+        ['allure', {
+        outputDir: './_results_/allure-raw',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+        }],
     ],
     //
     // ============
@@ -44,8 +61,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
-        browserVersion: 'latest'
+        browserName: 'firefox',
+        browserVersion: '70.0.1'
     }],
     //
     // ===================
@@ -58,8 +75,6 @@ exports.config = {
     // e.g. using promises you can set the sync option to false.
     sync: true,
     //
-    // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'trace',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -119,11 +134,6 @@ exports.config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'cucumber',
-    //
-    // Test reporter for stdout.
-    // The only one supported by default is 'dot'
-    // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ['spec'],
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {

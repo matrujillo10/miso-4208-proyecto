@@ -21,6 +21,8 @@
     "amqplib": "^0.5.5",
     "systeminformation": "^4.14.11",
     "uuid": "^3.3.3",
+    "wdio-allure-reporter": "^0.8.3",
+    "wdio-video-reporter": "^1.4.4",
     "webdriverio": "^5.12.5"
   }
 }

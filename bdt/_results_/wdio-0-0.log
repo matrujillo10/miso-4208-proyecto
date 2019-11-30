@@ -1,0 +1,40 @@
+2019-11-27T13:39:08.807Z INFO @wdio/local-runner: Run worker command: run
+2019-11-27T13:39:08.911Z INFO webdriverio: Initiate new session using the webdriver protocol
+2019-11-27T13:39:08.913Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session
+2019-11-27T13:39:08.913Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: { browserName: 'firefox', browserVersion: '70.0.1' },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: { browserName: 'firefox', browserVersion: '70.0.1' }
+}
+2019-11-27T13:39:09.985Z WARN webdriver: Request failed due to socket hang up
+2019-11-27T13:39:09.985Z INFO webdriver: Retrying 1/3
+2019-11-27T13:39:09.985Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session
+2019-11-27T13:39:09.986Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: { browserName: 'firefox', browserVersion: '70.0.1' },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: { browserName: 'firefox', browserVersion: '70.0.1' }
+}
+2019-11-27T13:39:09.988Z WARN webdriver: Request failed due to connect ECONNREFUSED 127.0.0.1:4444
+2019-11-27T13:39:09.988Z INFO webdriver: Retrying 2/3
+2019-11-27T13:39:09.988Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session
+2019-11-27T13:39:09.988Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: { browserName: 'firefox', browserVersion: '70.0.1' },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: { browserName: 'firefox', browserVersion: '70.0.1' }
+}
+2019-11-27T13:39:09.990Z WARN webdriver: Request failed due to connect ECONNREFUSED 127.0.0.1:4444
+2019-11-27T13:39:09.991Z INFO webdriver: Retrying 3/3
+2019-11-27T13:39:09.991Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session
+2019-11-27T13:39:09.991Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: { browserName: 'firefox', browserVersion: '70.0.1' },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: { browserName: 'firefox', browserVersion: '70.0.1' }
+}

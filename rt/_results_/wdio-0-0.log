@@ -1,0 +1,153 @@
+2019-11-27T13:48:24.387Z INFO @wdio/local-runner: Run worker command: run
+2019-11-27T13:48:24.496Z INFO webdriverio: Initiate new session using the webdriver protocol
+2019-11-27T13:48:24.497Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session
+2019-11-27T13:48:24.498Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: { browserName: 'chrome', browserVersion: 'latest' },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: { browserName: 'chrome', browserVersion: 'latest' }
+}
+2019-11-27T13:48:26.329Z INFO webdriver: COMMAND navigateTo("https://losestudiantes.co/")
+2019-11-27T13:48:26.330Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/url
+2019-11-27T13:48:26.330Z INFO webdriver: DATA { url: 'https://losestudiantes.co/' }
+2019-11-27T13:48:28.949Z INFO webdriver: COMMAND takeScreenshot()
+2019-11-27T13:48:28.950Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/screenshot
+2019-11-27T13:48:28.951Z INFO webdriver: COMMAND findElement("xpath", ".//button[normalize-space() = "Cerrar"]")
+2019-11-27T13:48:28.951Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/element
+2019-11-27T13:48:28.951Z INFO webdriver: DATA { using: 'xpath', value: './/button[normalize-space() = "Cerrar"]' }
+2019-11-27T13:48:29.405Z INFO webdriver: RESULT { ELEMENT: '0.8717936797684778-1' }
+2019-11-27T13:48:29.409Z INFO webdriver: COMMAND isElementDisplayed("0.8717936797684778-1")
+2019-11-27T13:48:29.409Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/element/0.8717936797684778-1/displayed
+2019-11-27T13:48:29.411Z INFO webdriver: RESULT iVBORw0KGgoAAAANSUhEUgAACWAAAAYiCAYAAAC4ldfgAAAAAXNSR0IArs4c6...
+2019-11-27T13:48:29.419Z INFO webdriver: RESULT true
+2019-11-27T13:48:29.420Z INFO webdriver: COMMAND takeScreenshot()
+2019-11-27T13:48:29.420Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/screenshot
+2019-11-27T13:48:29.420Z INFO webdriver: COMMAND findElement("xpath", ".//button[normalize-space() = "Cerrar"]")
+2019-11-27T13:48:29.420Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/element
+2019-11-27T13:48:29.420Z INFO webdriver: DATA { using: 'xpath', value: './/button[normalize-space() = "Cerrar"]' }
+2019-11-27T13:48:29.831Z INFO webdriver: RESULT { ELEMENT: '0.8717936797684778-1' }
+2019-11-27T13:48:29.834Z INFO webdriver: COMMAND elementClick("0.8717936797684778-1")
+2019-11-27T13:48:29.834Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/element/0.8717936797684778-1/click
+2019-11-27T13:48:29.839Z INFO webdriver: RESULT iVBORw0KGgoAAAANSUhEUgAACWAAAAYiCAYAAAC4ldfgAAAAAXNSR0IArs4c6...
+2019-11-27T13:48:29.866Z INFO webdriver: COMMAND takeScreenshot()
+2019-11-27T13:48:29.866Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/screenshot
+2019-11-27T13:48:29.867Z INFO webdriver: COMMAND setAsyncTimeout(60000)
+2019-11-27T13:48:29.867Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/timeouts/async_script
+2019-11-27T13:48:29.867Z INFO webdriver: DATA { ms: 60000 }
+2019-11-27T13:48:30.299Z INFO webdriver: COMMAND executeAsyncScript(<fn>, <object>)
+2019-11-27T13:48:30.299Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/execute_async
+2019-11-27T13:48:30.299Z INFO webdriver: DATA {
+  script: 'return (function loadScript(callback) {\n' +
+    "  var s = document.createElement('script');\n" +
+    "  s.src = 'https://rawgithub.com/marmelab/gremlins.js/master/gremlins.min.js';\n" +
+    '  if (s.addEventListener) {\n' +
+    "    s.addEventListener('load', callback, false);\n" +
+    '  } else if (s.readyState) {\n' +
+    '    s.onreadystatechange = callback;\n' +
+    '  }\n' +
+    '  document.body.appendChild(s);\n' +
+    '}).apply(null, arguments)',
+  args: []
+}
+2019-11-27T13:48:30.303Z INFO webdriver: RESULT iVBORw0KGgoAAAANSUhEUgAACWAAAAYiCAYAAAC4ldfgAAAAAXNSR0IArs4c6...
+2019-11-27T13:48:31.642Z INFO webdriver: RESULT {
+  AT_TARGET: 2,
+  BUBBLING_PHASE: 3,
+  CAPTURING_PHASE: 1,
+  NONE: 0,
+  bubbles: false,
+  cancelBubble: false,
+  cancelable: false,
+  composed: false,
+  composedPath: {},
+  currentTarget: null,
+  defaultPrevented: false,
+  eventPhase: 0,
+  initEvent: {},
+  isTrusted: true,
+  path: [
+    { ELEMENT: '0.8717936797684778-2' },
+    { ELEMENT: '0.8717936797684778-3' },
+    { ELEMENT: '0.8717936797684778-4' },
+    { ELEMENT: '0.8717936797684778-5' }
+  ],
+  preventDefault: {},
+  returnValue: true,
+  srcElement: null,
+  stopImmediatePropagation: {},
+  stopPropagation: {},
+  target: null,
+  timeStamp: 5220.3349999617785,
+  type: 'load'
+}
+2019-11-27T13:48:31.642Z INFO webdriver: COMMAND setAsyncTimeout(60000)
+2019-11-27T13:48:31.643Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/timeouts/async_script
+2019-11-27T13:48:31.643Z INFO webdriver: DATA { ms: 60000 }
+2019-11-27T13:48:31.646Z INFO webdriver: COMMAND executeAsyncScript(<fn>, <object>)
+2019-11-27T13:48:31.646Z INFO webdriver: [POST] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/execute_async
+2019-11-27T13:48:31.646Z INFO webdriver: DATA {
+  script: 'return (function unleashGremlins(ttl, callback) {\n' +
+    '  function stop() {\n' +
+    '    horde.stop();\n' +
+    '    callback();\n' +
+    '  }\n' +
+    '  var horde = window.gremlins.createHorde()\n' +
+    '    .gremlin(gremlins.species.formFiller()\n' +
+    '                              .canFillElement(function(element) {\n' +
+    '                                // Limita los rellenados a aquellos elementos que se pueden rellenar (Escribir en ellos)\n' +
+    "                                console.log('canFillElement >>>>>>>>>>>> ' + element);\n" +
+    `                                return element.type == 'textarea' || element.type == "text"  || element.type == "" ||\n` +
+    '                                        element.type == "password" || element.type == "number" || element.type == "email";\n' +
+    '                              }))\n' +
+    '    .gremlin(gremlins.species.clicker()\n' +
+    "                              .clickTypes(['click']) // solo permite clicks\n" +
+    '                              .canClick(function(element) {\n' +
+    "                                  console.log('canClick >>>>>>>>>>>> ' + element);\n" +
+    "                                  return element.tagName == 'A' || element.tagName == 'BUTTON';\n" +
+    '                              }))\n' +
+    '    .gremlin(gremlins.species.toucher())\n' +
+    '    .gremlin(gremlins.species.scroller())\n' +
+    '    .gremlin(function() {\n' +
+    '      window.$ = function() {};\n' +
+    '    });\n' +
+    '\n' +
+    '  // Si el elemento ya no estÃ¡ en el documento, habrÃ¡ un error. Por tanto, se detienen los gremlins con 5 errores\n' +
+    '  horde.mogwai(gremlins.mogwais.gizmo().maxErrors(5)); \n' +
+    '\n' +
+    '  horde.seed(81432);\n' +
+    '  horde.strategy(gremlins.strategies.distribution().distribution([0.2, 0.4, 0.2, 0.2]))\n' +
+    '  horde.after(callback);\n' +
+    '  window.onbeforeunload = stop;\n' +
+    '  setTimeout(stop, ttl);\n' +
+    '  horde.unleash();\n' +
+    '}).apply(null, arguments)',
+  args: [ 50000 ]
+}
+2019-11-27T13:49:21.749Z INFO webdriver: COMMAND takeScreenshot()
+2019-11-27T13:49:21.749Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/screenshot
+2019-11-27T13:49:21.760Z INFO webdriver: COMMAND getLogTypes()
+2019-11-27T13:49:21.760Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+2019-11-27T13:49:21.765Z WARN webdriver: Request failed due to unknown command: session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+2019-11-27T13:49:21.765Z INFO webdriver: Retrying 1/3
+2019-11-27T13:49:21.765Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+2019-11-27T13:49:21.768Z WARN webdriver: Request failed due to unknown command: session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+2019-11-27T13:49:21.768Z INFO webdriver: Retrying 2/3
+2019-11-27T13:49:21.768Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+2019-11-27T13:49:21.771Z WARN webdriver: Request failed due to unknown command: session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+2019-11-27T13:49:21.771Z INFO webdriver: Retrying 3/3
+2019-11-27T13:49:21.771Z INFO webdriver: [GET] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+2019-11-27T13:49:21.774Z ERROR webdriver: Request failed due to Error: unknown command: session/b846078eb4e543114f7caf4a995e76a0/se/log/types
+    at getErrorFromResponseBody (/Users/miller/Dropbox/Universidad/Sistemas/Pruebas Automáticas/proyecto/miso-4208-proyecto/rt/node_modules/webdriver/build/utils.js:168:12)
+    at Request._callback (/Users/miller/Dropbox/Universidad/Sistemas/Pruebas Automáticas/proyecto/miso-4208-proyecto/rt/node_modules/webdriver/build/request.js:110:64)
+    at Request.self.callback (/Users/miller/Dropbox/Universidad/Sistemas/Pruebas Automáticas/proyecto/miso-4208-proyecto/rt/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:476:20)
+    at Request.<anonymous> (/Users/miller/Dropbox/Universidad/Sistemas/Pruebas Automáticas/proyecto/miso-4208-proyecto/rt/node_modules/request/request.js:1161:10)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:476:20)
+    at IncomingMessage.<anonymous> (/Users/miller/Dropbox/Universidad/Sistemas/Pruebas Automáticas/proyecto/miso-4208-proyecto/rt/node_modules/request/request.js:1083:12)
+    at Object.onceWrapper (events.js:299:28)
+2019-11-27T13:49:21.775Z INFO webdriver: COMMAND deleteSession()
+2019-11-27T13:49:21.775Z INFO webdriver: [DELETE] http://127.0.0.1:4444/wd/hub/session/b846078eb4e543114f7caf4a995e76a0
+2019-11-27T13:49:22.425Z INFO webdriver: RESULT iVBORw0KGgoAAAANSUhEUgAACWAAAAYiCAYAAAC4ldfgAAAAAXNSR0IArs4c6...

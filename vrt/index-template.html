@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>VRT Reporte</title>
+    <style>
+      body {
+          padding-top: 60px;
+      }
+
+      @media (max-width: 980px) {
+          body {
+              padding-top: 0;
+          }
+      }
+
+      #generador {
+          width: 100%;
+          margin-bottom: 60px;
+      }
+
+
+      /* When the body has the loading class, we turn
+        the scrollbar off with overflow:hidden */
+      body.loading .modal {
+          overflow: hidden;   
+      }
+
+      /* Anytime the body has the loading class, our
+        modal element will be visible */
+      body.loading .modal {
+          display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="reportes">
+        <div class="row">
+            <div class="col-3"><h3>Imagen Base</h3></div>
+            <div class="col-3"><h3>Imagen Modificada</h3></div>
+            <div class="col-3"><h3>Diferencias</h3></div>
+            <div class="col-3"><h3>Información Extra</h3></div>
+        </div>
+        {{report}}
+    </div>
+  </body>
+</html>

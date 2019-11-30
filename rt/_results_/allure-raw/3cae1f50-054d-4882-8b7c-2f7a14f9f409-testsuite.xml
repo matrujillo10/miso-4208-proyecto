@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1574862477510' stop='1574862478070'>
+    <name>Monkey testing with gremlins </name>
+    <title>Monkey testing with gremlins </title>
+    <test-cases>
+        <test-case start='1574862477527' status='failed' stop='1574862478065'>
+            <name>it should not raise any error</name>
+            <title>it should not raise any error</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Safari'/>
+                <parameter kind='argument' name='browserVersion' value='13.0.3'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Execution video' source='13a684f7-0208-437e-b05a-cdcb4e805a88-attachment.mp4' type='video/mp4' size='204'/>
+            </attachments>
+            <failure>
+                <message>TypeError: browser.setAsyncTimeout is not a function</message>
+                <stack-trace>    at &lt;Jasmine>
+                    at UserContext.&lt;anonymous> (/Users/miller/Dropbox/Universidad/Sistemas/Pruebas Automáticas/proyecto/miso-4208-proyecto/rt/test/specs/c8e771cd-694d-4830-8ef0-bd0e643228c5.js:55:13)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1574862478068' status='failed' stop='1574862478069'>
+            <name>"after all" hook</name>
+            <title>"after all" hook</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Safari'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>browser.log is not a function</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

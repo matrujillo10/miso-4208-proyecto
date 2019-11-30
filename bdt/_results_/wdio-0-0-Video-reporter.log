@@ -1,0 +1,75 @@
+Using reporter config:[
+  "spec",
+  [
+    null,
+    {
+      "saveAllVideos": true,
+      "videoSlowdownMultiplier": 3,
+      "videoRenderTimeout": 5
+    }
+  ],
+  [
+    "allure",
+    {
+      "outputDir": "./_results_/allure-raw",
+      "disableWebdriverStepsReporting": true,
+      "disableWebdriverScreenshotsReporting": true
+    }
+  ]
+]
+
+Using config:{
+  "debugMode": false,
+  "logLevel": "info",
+  "videoRenderTimeout": 5,
+  "outputDir": "_results_",
+  "allureOutputDir": "/Users/miller/Dropbox/Universidad/Sistemas/Pruebas Automáticas/proyecto/miso-4208-proyecto/bdt/_results_/allure-raw",
+  "rawPath": "rawSeleniumVideoGrabs",
+  "usingAllure": true,
+  "saveAllVideos": true,
+  "videoSlowdownMultiplier": 3,
+  "excludedActions": [],
+  "jsonWireActions": [
+    "url",
+    "forward",
+    "back",
+    "refresh",
+    "execute",
+    "size",
+    "position",
+    "maximize",
+    "click",
+    "submit",
+    "value",
+    "keys",
+    "clear",
+    "selected",
+    "enabled",
+    "displayed",
+    "orientation",
+    "alert_text",
+    "accept_alert",
+    "dismiss_alert",
+    "moveto",
+    "buttondown",
+    "buttonup",
+    "doubleclick",
+    "down",
+    "up",
+    "move",
+    "scroll",
+    "doubleclick",
+    "longclick",
+    "flick",
+    "location"
+  ]
+}
+
+
+Max waiting time: 5s
+
+Generated:[]
+
+
+
+Done!

@@ -28,7 +28,7 @@ const sendWork = function(data, testType, onSuccess, onFailure) {
             
                 channel.consume(q.queue, function(msg) {
                     if (msg.properties.correlationId == correlationId) {
-                        console.log(' [.] Got %s', msg.content.toString());
+                        console.log(` [.] ${workQueue} Got ${msg.content.toString()}`);
                         setTimeout(function() {
                             connection.close();
                             onSuccess(JSON.parse(msg.content.toString()));

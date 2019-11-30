@@ -39,3 +39,6 @@ When('I try to login', () => {
 Then('I expect to not be able to login', () => {
   $('.aviso.alert.alert-danger').waitForDisplayed(5000);
 });
+
+// Craig Snow 0-492-64910-3 #683653 001-089-375-7409 68.62.117.169
+// 017 371962765709060 03/23

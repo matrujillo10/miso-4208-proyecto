@@ -28,11 +28,15 @@ recieve((data) => {
               "trashAssetsBeforeRuns": true
             }
           }).then((results) => {
-            console.log('Ok');
-            resolve({status: 'ok'});
+            console.log(results);
+            if (results.totalFailed > 0) {
+              resolve({status: 'ENDED WITH ERRORS'});
+            } else {
+              resolve({status: 'OK'});
+            }
           }).catch((err) => {
-            console.error('err');
-            reject({status: 'error'})
+            console.error(err);
+            reject({status: 'ERROR'})
           })
         })
       });
