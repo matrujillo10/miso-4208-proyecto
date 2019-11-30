@@ -26,7 +26,7 @@ Debido a que no se cuenta con una interfaz gráfica, se piensa desarrollar un AP
 
 # Interfaz gráfica
 
-Este componente se desarrollo utilizando `django` y cuenta con las opciones de crear usuarios, aplicaciones, versiones de aplicaciones, estrategias de pruebas con diferentes tipos de pruebas (E2E, Random, BDT y VRT) y, además, permite ejecutar las pruebas también.
+Este componente se desarrollo utilizando `django` y cuenta con las opciones de crear usuarios, aplicaciones, versiones de aplicaciones, estrategias de pruebas con diferentes tipos de pruebas (E2E, Random, BDT, VRT y no funcionales) y, además, permite ejecutar las pruebas también.
 
 # Dispatcher
 
@@ -38,7 +38,7 @@ Todos los workers se encuentran desarrollados en `node.js`. En general, reciben 
 
 ## Workers actuales
 
-Actualmente se cuenta con workers para pruebas E2E, Random, BDT y VRT.
+Actualmente se cuenta con workers para pruebas E2E, Random, BDT, VRT y no funcionales (Lighthouse).
 
 # Base de datos
 
