@@ -45,5 +45,5 @@ Actualmente se cuenta con workers para pruebas E2E, Random, BDT, VRT y no funcio
 Anteriormente, se estaba utilizando firestore como almacenamiento. Sin embargo, debido a la interfaz gráfica se decidió cambiar esto para utilizar postgresql. 
 
 
-![Diagrama de datos](https://raw.githubusercontent.com/matrujillo10/miso-4208-proyecto/master/arquitectura/DbVisualizer.svg)
+![Diagrama de datos](arquitectura/DbVisualizer.svg)
 <img src="https://raw.githubusercontent.com/matrujillo10/miso-4208-proyecto/master/arquitectura/DbVisualizer.svg">
